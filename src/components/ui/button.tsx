@@ -1,4 +1,5 @@
 import * as React from "react"
+import Link from "next/link"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
@@ -40,17 +41,20 @@ function Button({
   variant,
   size,
   asChild = false,
+  href,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
+    href?: string
   }) {
-  const Comp = asChild ? Slot : "button"
+  const Comp:any = asChild ? Slot : href ? Link : "button"
 
   return (
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      {...(href ? { href } : {})}
       {...props}
     />
   )

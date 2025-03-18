@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import NavMenuItems from "./navigation-menu/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
+import CustomButton from "@/components/ui/custom-button";
  "./navigation-menu/navigation";
 
 const Header = () => {
@@ -48,7 +49,8 @@ const Header = () => {
       </Suspense>
 
       <div className="flex items-center gap-4">
-        <Button variant="default">Login</Button>
+        {/* <Button variant="default" href="/login" >Login</Button> */}
+        <CustomButton href="/login" >Login</CustomButton>
       </div>
 
       <button className="md:hidden flex flex-col gap-1 w-6 h-6" onClick={() => setIsOpen(!isOpen)}>
